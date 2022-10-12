@@ -169,7 +169,6 @@ describe('ResidentialController', () => {
             results3 = scenario(column, 9, 'down', 2)
             column = results3.tempColumn // Update the column state with last scenario's result
         });
-        console.log("ICIIIIIIIIIIII");
         //console.log(results1.selectedElevator.ID);
         describe("Part 1 of scenario 2", () => {
             test("Part 1 of scenario 2 chooses the best elevator", () => {

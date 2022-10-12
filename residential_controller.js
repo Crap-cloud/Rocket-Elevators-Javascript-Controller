@@ -1,4 +1,3 @@
-let elevatorID = 1;
 let floorRequestButtonID = 1;
 let callButtonID = 1;
 
@@ -29,6 +28,7 @@ class Column {
         }
     }
     createElevators(_amountOfFloors, _amountOfElevators){
+        let elevatorID = 1;
         for(let i=0;i<_amountOfElevators;i++){
             let elevator = new Elevator(elevatorID, 'idle', _amountOfFloors, 1);
             this.elevatorList.push(elevator);
@@ -40,6 +40,7 @@ class Column {
         console.log('Mon ascenseur');
         console.log(elevator);
         console.log(elevator.ID);
+        console.log(elevator.currentFloor);
         elevator.floorRequestList.push(floor);
         elevator.move();
         elevator.operateDoors();
@@ -90,16 +91,16 @@ class Column {
                 referenceGap = gap;
             }
         }
-        let bestElevatorInformations = [];
-        return bestElevatorInformations = [bestElevator, bestScore, referenceGap];
+        let bestElevatorInformations = [bestElevator, bestScore, referenceGap];
+        return bestElevatorInformations 
     }
 }
 
 class Elevator {
-    constructor(_id, _amountOfFloors, _currentFloor) {
+    constructor(_id, _amountOfFloors) {
         this.ID = _id;
         this.status = 'idle';
-        this.currentFloor = _currentFloor;
+        this.currentFloor = 1;
         this.direction = null;
         this.door = new Door(_id, 'closed');
         this.floorRequestButtonList = [];
@@ -211,13 +212,14 @@ column.elevatorList[1]._currentFloor = 6;
 const elevator = column.requestElevator(3, 'Up');
 elevator.requestFloor(7);*/
 
-/*Scenario 2
-const column = new Column(1, 'online', 10, 2);
+/*Scenario 2*/
+const column = new Column(1, 10, 2);
 column.elevatorList[0]._currentFloor = 10;
-column.elevatorList[1]._currentFloor = 3;*/
-/*Part 1
+column.elevatorList[1]._currentFloor = 3;
+/*Part 1*/
 const elevator = column.requestElevator(1, 'Up');
-elevator.requestFloor(6);*/
+elevator.requestFloor(6);
+console.log(column.elevatorList);
 /*Part 2
 const elevator = column.requestElevator(3, 'Up');
 elevator.requestFloor(5);*/
