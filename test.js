@@ -112,7 +112,7 @@ describe('ResidentialController', () => {
     describe("Door's attributes", () => {
         const door = new Door(1)
 
-        it('Instantiates a FloorRequestButton with valid attributes', () => {
+        it('Instantiates a Door with valid attributes', () => {
             expect(door instanceof Door).toBe(true)
 
             expect(door.ID).toEqual(1)
@@ -169,7 +169,8 @@ describe('ResidentialController', () => {
             results3 = scenario(column, 9, 'down', 2)
             column = results3.tempColumn // Update the column state with last scenario's result
         });
-
+        console.log("ICIIIIIIIIIIII");
+        //console.log(results1.selectedElevator.ID);
         describe("Part 1 of scenario 2", () => {
             test("Part 1 of scenario 2 chooses the best elevator", () => {
                 expect(results1.selectedElevator.ID).toEqual(2)
