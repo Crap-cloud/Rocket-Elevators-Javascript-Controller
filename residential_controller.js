@@ -37,10 +37,6 @@ class Column {
     }
     requestElevator(floor, direction){
         let elevator = this.findElevator(floor, direction);
-        console.log('Mon ascenseur');
-        console.log(elevator);
-        console.log(elevator.ID);
-        console.log(elevator.currentFloor);
         elevator.floorRequestList.push(floor);
         elevator.move();
         elevator.operateDoors();
@@ -51,7 +47,6 @@ class Column {
         let bestScore = 5;
         let referenceGap = 10000000;
         let bestElevatorInformations;
-        console.log(this.elevatorList);
         for(let i=0;i<this.elevatorList.length;i++){
             //The elevator is at my floor and going in the direction I want
             if(requestedFloor == this.elevatorList[i].currentFloor && this.elevatorList[i]._status == 'stopped' && requestedDirection == this.elevatorList[i].direction){
@@ -228,15 +223,15 @@ elevator.requestFloor(5);*/
 const elevator = column.requestElevator(9, 'Down');
 elevator.requestFloor(2);*/
 
-/*Scenario 3*/
+/*Scenario 3
 const column = new Column(1, 'online', 10, 2);
 column.elevatorList[0].currentFloor = 10;
 column.elevatorList[1].currentFloor = 3;
 column.elevatorList[1].status = 'moving';
-column.elevatorList[1].floorRequestList.push(6);
-/*Part 1*/
+column.elevatorList[1].floorRequestList.push(6);*/
+/*Part 1
 const elevator = column.requestElevator(3, 'Down');
-elevator.requestFloor(2);
+elevator.requestFloor(2);*/
 /*Part 2
 const elevator = column.requestElevator(10, 'Down');
 elevator.requestFloor(3);*/
