@@ -117,7 +117,6 @@ class Elevator {
         this.move();
         this.operateDoors();
     }
-
     move(){
         while(this.floorRequestList.length != 0){
             let destination = this.floorRequestList[0];
@@ -152,13 +151,13 @@ class Elevator {
         }
     }
     operateDoors(){
-        let overweight;
-        let obstruction;
+        let overweight = 350;
+        let obstruction = false;
         this.door.status = 'opened';
-        //setTimeout(function(){},5000);
-        if(!overweight){
+        //setTimeout(function(){},5000); //wait 5sec for people
+        if(overweight < 600 ){
             this.door.status = 'closing';
-            if(!obstruction){
+            if(obstruction == false){
                 this.door.status = 'closed';
             }
             else{
@@ -166,7 +165,7 @@ class Elevator {
             }
         }
         else {
-            while(overweight){
+            while(overweight >= 600){
                 console.log('Overweight alarm activated !');
             }
             this.operateDoors();
@@ -206,7 +205,8 @@ const column = new Column(1, 'online', 10, 2);
 column.elevatorList[0]._currentFloor = 2;
 column.elevatorList[1]._currentFloor = 6;
 const elevator = column.requestElevator(3, 'Up');
-elevator.requestFloor(7);*/
+elevator.requestFloor(7);
+console.log(elevator);*/
 
 /*Scenario 2
 const column = new Column(1, 10, 2);
@@ -218,10 +218,13 @@ elevator.requestFloor(6);
 console.log(column.elevatorList);*/
 /*Part 2
 const elevator = column.requestElevator(3, 'Up');
-elevator.requestFloor(5);*/
+elevator.requestFloor(5);
+console.log(elevator);*/
+
 /*Part 3
 const elevator = column.requestElevator(9, 'Down');
-elevator.requestFloor(2);*/
+elevator.requestFloor(2);
+console.log(elevator);*/
 
 /*Scenario 3
 const column = new Column(1, 'online', 10, 2);
@@ -231,7 +234,9 @@ column.elevatorList[1].status = 'moving';
 column.elevatorList[1].floorRequestList.push(6);*/
 /*Part 1
 const elevator = column.requestElevator(3, 'Down');
-elevator.requestFloor(2);*/
+elevator.requestFloor(2);
+console.log(elevator);*/
 /*Part 2
 const elevator = column.requestElevator(10, 'Down');
-elevator.requestFloor(3);*/
+elevator.requestFloor(3);
+console.log(elevator);*/
