@@ -49,7 +49,7 @@ class Column {
         let bestElevatorInformations;
         for(let i=0;i<this.elevatorList.length;i++){
             //The elevator is at my floor and going in the direction I want
-            if(requestedFloor == this.elevatorList[i].currentFloor && this.elevatorList[i]._status == 'stopped' && requestedDirection == this.elevatorList[i].direction){
+            if(requestedFloor == this.elevatorList[i].currentFloor && this.elevatorList[i].status == 'stopped' && requestedDirection == this.elevatorList[i].direction){
                 bestElevatorInformations = this.checkIfElevatorIsBetter(1, this.elevatorList[i], bestScore, referenceGap, bestElevator, requestedFloor);
             }
             //The elevator is lower than me, is coming up and I want to go up
